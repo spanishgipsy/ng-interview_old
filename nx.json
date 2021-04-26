@@ -1,25 +1,15 @@
 {
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "ng-interview",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MmExYTU5M2YtN2RhZS00M2MyLWJlMzItYjVkOTBhNThlNzhmfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -27,14 +17,11 @@
     }
   },
   "projects": {
-    "ng-interview-frontend": {
-      "tags": []
-    },
+    "ng-interview-frontend": { "tags": [] },
     "ng-interview-frontend-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ng-interview-frontend"
-      ]
-    }
+      "implicitDependencies": ["ng-interview-frontend"]
+    },
+    "ng-interview-backend": { "tags": [] }
   }
 }

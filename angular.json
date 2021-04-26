@@ -145,6 +145,56 @@
           }
         }
       }
+    },
+    "ng-interview-backend": {
+      "root": "apps/ng-interview-backend",
+      "sourceRoot": "apps\\ng-interview-backend\\src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/ng-interview-backend",
+            "main": "apps/ng-interview-backend/src/main.ts",
+            "tsConfig": "apps/ng-interview-backend/tsconfig.app.json",
+            "assets": ["apps/ng-interview-backend/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-interview-backend/src/environments/environment.ts",
+                  "with": "apps/ng-interview-backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "ng-interview-backend:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ng-interview-backend/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ng-interview-backend"],
+          "options": {
+            "jestConfig": "apps/ng-interview-backend/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
