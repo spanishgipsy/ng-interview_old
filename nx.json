@@ -12,9 +12,17 @@
   "npmScope": "ng-interview",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "MmExYTU5M2YtN2RhZS00M2MyLWJlMzItYjVkOTBhNThlNzhmfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
@@ -24,7 +32,9 @@
     },
     "ng-interview-frontend-e2e": {
       "tags": [],
-      "implicitDependencies": ["ng-interview-frontend"]
+      "implicitDependencies": [
+        "ng-interview-frontend"
+      ]
     }
   }
 }
