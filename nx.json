@@ -1,9 +1,14 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "ng-interview",
   "tasksRunnerOptions": {
     "default": {
@@ -17,13 +22,21 @@
     }
   },
   "projects": {
-    "ng-interview-frontend": { "tags": [] },
-    "ng-interview-frontend-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ng-interview-frontend"]
+    "ng-interview-backend": {
+      "tags": []
     },
-    "ng-interview-backend": { "tags": [] },
-    "data": { "tags": [] },
-    "ui": { "tags": [] }
+    "data": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "ng-interview": {
+      "tags": []
+    },
+    "ng-interview-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ng-interview"]
+    }
   }
 }

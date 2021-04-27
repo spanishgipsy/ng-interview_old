@@ -16,12 +16,16 @@ export class AppComponent {
   }
 
   fetch() {
-    this.http.get<Question[]>('/api/questions').subscribe((t) => (this.questions = t));
+    this.http
+      .get<Question[]>('/api/questions')
+      .subscribe((t) => (this.questions = t));
   }
 
   addQuestion(title: string) {
-    this.http.post<Question>('/api/questions', { title }).subscribe(() => {
-      this.fetch();
-    });
+    this.http
+      .post<Question>('/api/questions', { title })
+      .subscribe(() => {
+        this.fetch();
+      });
   }
 }

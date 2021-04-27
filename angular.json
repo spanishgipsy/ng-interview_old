@@ -3,7 +3,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "defaultProject": "ng-interview-frontend",
+  "defaultProject": "ng-interview",
   "schematics": {
     "@nrwl/angular": {
       "application": {
@@ -32,121 +32,6 @@
     }
   },
   "projects": {
-    "ng-interview-frontend": {
-      "projectType": "application",
-      "root": "apps/ng-interview-frontend",
-      "sourceRoot": "apps/ng-interview-frontend/src",
-      "prefix": "ng-interview",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/ng-interview-frontend",
-            "index": "apps/ng-interview-frontend/src/index.html",
-            "main": "apps/ng-interview-frontend/src/main.ts",
-            "polyfills": "apps/ng-interview-frontend/src/polyfills.ts",
-            "tsConfig": "apps/ng-interview-frontend/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/ng-interview-frontend/src/favicon.ico",
-              "apps/ng-interview-frontend/src/assets"
-            ],
-            "styles": ["apps/ng-interview-frontend/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ng-interview-frontend/src/environments/environment.ts",
-                  "with": "apps/ng-interview-frontend/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ng-interview-frontend:build",
-            "proxyConfig": "apps/ng-interview-frontend/proxy.conf.json"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ng-interview-frontend:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ng-interview-frontend:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/ng-interview-frontend/src/**/*.ts",
-              "apps/ng-interview-frontend/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ng-interview-frontend"],
-          "options": {
-            "jestConfig": "apps/ng-interview-frontend/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "ng-interview-frontend-e2e": {
-      "root": "apps/ng-interview-frontend-e2e",
-      "sourceRoot": "apps/ng-interview-frontend-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/ng-interview-frontend-e2e/cypress.json",
-            "tsConfig": "apps/ng-interview-frontend-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ng-interview-frontend:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ng-interview-frontend:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/ng-interview-frontend-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "ng-interview-backend": {
       "root": "apps/ng-interview-backend",
       "sourceRoot": "apps\\ng-interview-backend\\src",
@@ -236,6 +121,121 @@
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ng-interview": {
+      "projectType": "application",
+      "root": "apps/ng-interview",
+      "sourceRoot": "apps/ng-interview/src",
+      "prefix": "ng-interview",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ng-interview",
+            "index": "apps/ng-interview/src/index.html",
+            "main": "apps/ng-interview/src/main.ts",
+            "polyfills": "apps/ng-interview/src/polyfills.ts",
+            "tsConfig": "apps/ng-interview/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ng-interview/src/favicon.ico",
+              "apps/ng-interview/src/assets"
+            ],
+            "styles": ["apps/ng-interview/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-interview/src/environments/environment.ts",
+                  "with": "apps/ng-interview/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-interview:build",
+            "proxyConfig": "apps/ng-interview/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-interview:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-interview:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/ng-interview/src/**/*.ts",
+              "apps/ng-interview/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ng-interview"],
+          "options": {
+            "jestConfig": "apps/ng-interview/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ng-interview-e2e": {
+      "root": "apps/ng-interview-e2e",
+      "sourceRoot": "apps/ng-interview-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ng-interview-e2e/cypress.json",
+            "tsConfig": "apps/ng-interview-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ng-interview:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-interview:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ng-interview-e2e/**/*.{js,ts}"]
           }
         }
       }
