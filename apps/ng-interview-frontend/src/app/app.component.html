@@ -1,7 +1,5 @@
 <h1>Questions</h1>
-<ol>
-  <li *ngFor="let question of questions" class="question">
-    {{ question.title }}
-  </li>
-</ol>
-<button id="add-question" (click)="addQuestion()">ADD QUESTION</button>
+
+<ng-interview-questions-list [items]="questions"></ng-interview-questions-list>
+
+<button id="add-question" (click)="addQuestion('new question')">ADD QUESTION</button>

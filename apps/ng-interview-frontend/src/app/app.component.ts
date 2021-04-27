@@ -1,8 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
-interface Question {
-  title: string;
-}
+import { Question } from '@ng-interview/data';
 
 @Component({
   selector: 'ng-interview-root',
@@ -11,9 +9,19 @@ interface Question {
 })
 export class AppComponent {
   title = 'Angular Interview Questions';
-  questions: Question[] = [{ title: 'Question 1' }, { title: 'Question 2' }];
+  questions: Question[] = [];
 
-  addQuestion(title: string = `${this.questions.length}`) {
-    this.questions.push({ title });
+  constructor(private http: HttpClient) {
+    this.fetch();
+  }
+
+  fetch() {
+    this.http.get<Question[]>('/api/questions').subscribe((t) => (this.questions = t));
+  }
+
+  addQuestion(title: string) {
+    this.http.post<Question>('/api/questions', { title }).subscribe(() => {
+      this.fetch();
+    });
   }
 }

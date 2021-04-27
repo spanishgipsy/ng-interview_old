@@ -1,0 +1,1 @@
+export { Question } from '@ng-interview/data';

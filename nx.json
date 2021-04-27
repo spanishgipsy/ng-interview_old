@@ -22,6 +22,8 @@
       "tags": [],
       "implicitDependencies": ["ng-interview-frontend"]
     },
-    "ng-interview-backend": { "tags": [] }
+    "ng-interview-backend": { "tags": [] },
+    "data": { "tags": [] },
+    "ui": { "tags": [] }
   }
 }
